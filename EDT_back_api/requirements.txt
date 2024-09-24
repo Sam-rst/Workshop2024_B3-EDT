@@ -1,0 +1,8 @@
+fastapi[all]
+fastapi_jwt_auth
+pydantic
+SQLAlchemy
+SQLAlchemy_utils
+psycopg2_binary
+werkzeug
+uvicorn
