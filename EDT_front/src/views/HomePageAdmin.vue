@@ -2,11 +2,12 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title>Home Page Admin</ion-title>
+                <ion-title><a href="/home">Home Page Admin</a></ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content>
-            <ion-button @click="openCard">Créer un groupe</ion-button>
+            <ion-button @click="openCardAllGroups">Les groupes</ion-button>
+            <ion-button @click="openCardCreate">Créer un groupe</ion-button>
             <ion-card v-if="showCard">
                 <ion-card-header>
                     <ion-card-title>Créer un nouveau groupe</ion-card-title>
@@ -48,8 +49,11 @@ export default defineComponent({
         const users = ref<string[]>([]);
         const newUser = ref('');
 
-        const openCard = () => {
-            showCard.value = true;
+        const openCardCreate = () => {
+            showCard.value = !showCard.value;
+        };
+
+        const openCardAllGroups = () => {
         };
 
         const addUser = () => {
@@ -63,7 +67,19 @@ export default defineComponent({
             users.value.splice(index, 1);
         };
 
+        const allGroupes = () => {
+            // Logic to create group with groupName and users
+            console.log('Group Name:', groupName.value);
+            console.log('Users:', users.value);
+        };
+
         const createGroup = () => {
+            // Logic to create group with groupName and users
+            console.log('Group Name:', groupName.value);
+            console.log('Users:', users.value);
+        };
+
+        const profil = () => {
             // Logic to create group with groupName and users
             console.log('Group Name:', groupName.value);
             console.log('Users:', users.value);
@@ -74,10 +90,13 @@ export default defineComponent({
             groupName,
             users,
             newUser,
-            openCard,
+            openCardCreate,
+            openCardAllGroups,
             addUser,
             removeUser,
-            createGroup
+            createGroup,
+            allGroupes,
+            profil
         };
     }
 });

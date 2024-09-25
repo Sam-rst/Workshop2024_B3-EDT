@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import { RouteRecordRaw } from 'vue-router';
+import Cookies from 'js-cookie';
 import HomePage from '../views/HomePage.vue';
 import AboutPage from '../views/AboutPage.vue';
+import LoginPage from '../views/LoginPage.vue';
 import HomePageAdmin from '@/views/HomePageAdmin.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -12,7 +14,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'Home',
-    component: HomePage
+    component: HomePage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage
   },
   {
     path: '/about',
@@ -30,5 +38,21 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    const userCookie = Cookies.get('user-session');
+
+    //Vérifier si le cookie est présent et si la session est correcte
+    console.log(userCookie)
+    if (userCookie) {
+      next();
+    } else {
+      next({ name: 'Login' });
+    }
+  } else {
+    next();
+  }
+});
 
 export default router
