@@ -6,3 +6,4 @@ SQLAlchemy_utils
 psycopg2_binary
 werkzeug
 uvicorn
+dependency_injector
