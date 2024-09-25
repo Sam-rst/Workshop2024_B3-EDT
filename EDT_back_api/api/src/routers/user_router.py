@@ -44,3 +44,22 @@ def route_get_users(request: Request,
         status_code=status.HTTP_200_OK,
         content=jsonable_encoder(user_dtos)
     )
+
+@user_router.post(
+    "/user",
+    response_description="Création d'un user",
+    response_model_exclude_unset=True,
+    response_model_exclude_none=True,
+    status_code=status.HTTP_201_CREATED
+)
+@inject
+def create_user(
+    user: UserDTO,
+    user_service: UserService = Depends(Provide[Container.user_service])
+    ) -> JSONResponse:
+    
+    output_response = user_service.create_user(user)
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content=jsonable_encoder(output_response)
+    )

@@ -10,3 +10,6 @@ class UserService:
     
     def get_users(self) -> list[UserDTO]:
         return self.user_repository.get_users()
+
+    def create_user(self, user: UserDTO):
+        return self.user_repository.create_user(user)

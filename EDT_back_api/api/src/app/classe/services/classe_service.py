@@ -9,4 +9,4 @@ class ClasseService:
         self.classe_repository = classe_repository
     
     def get_classes(self) -> list[ClasseDTO]:
-        return self.classe_repository.get_users()
+        return self.classe_repository.get_classes()

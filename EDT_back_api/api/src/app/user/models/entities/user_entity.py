@@ -8,10 +8,9 @@ class UserEntity(BaseEntity):
 
     firstname = Column(String(255), nullable=False)
     lastname = Column(String(255), nullable=False)
-    username = Column(String(255), unique=True)
+    username = Column(String(255), unique=True, nullable=False)
     email = Column(String(255), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
     role = Column(Integer, default=1)  # 0: ADMIN - 1: USER
 
-    classe_id = Column(Integer, ForeignKey("classe.id"), nullable=False)
-    classes_created = relationship("ClasseEntity", back_populates="users", foreign_keys=[ClasseEntity.created_by])  # Ajout de foreign_keys
+    classe_id = Column(Integer, ForeignKey("classe.id"))

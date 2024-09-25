@@ -1,4 +1,6 @@
 fastapi[all]
+passlib[bcrypt]
+python-jose[cryptography]
 fastapi_jwt_auth
 pydantic
 SQLAlchemy
@@ -7,3 +9,4 @@ psycopg2_binary
 werkzeug
 uvicorn
 dependency_injector
+python-dotenv
