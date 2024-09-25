@@ -1,7 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
 from src.app.classe.models.entities.classe_entity import ClasseEntity
-from src.app.user.models.dtos.user_dto import UserDTO
 
 class ClasseDTO(BaseModel):
 
@@ -12,7 +11,7 @@ class ClasseDTO(BaseModel):
     created_at: datetime = Field(description="La classe a été créée tel jour", default=datetime.now())
     updated_at: datetime = Field(description="La classe a été modifiée tel jour")
 
-    created_by: UserDTO = Field(description="La classe a été créée par")
+    created_by: int = Field(description="La classe a été créée par")
 
     @classmethod
     def copy_from_entity(cls, entity: ClasseEntity):
@@ -24,5 +23,5 @@ class ClasseDTO(BaseModel):
             ecole=entity.ecole,
             created_at=entity.created_at,
             updated_at=entity.updated_at,
-            created_by=UserDTO.copy_from_entity(entity.user)
+            created_by=entity.created_by
             )
