@@ -10,3 +10,6 @@ class CoursService:
     
     def get_cours(self) -> list[CoursDTO]:
         return self.cours_repository.get_cours()
+
+    def get_prochains_cours(self) -> list[CoursDTO]:
+        return self.cours_repository.get_prochains_cours()
