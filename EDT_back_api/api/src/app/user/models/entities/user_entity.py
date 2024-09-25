@@ -1,6 +1,7 @@
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, ForeignKey
 from sqlalchemy.orm import relationship
 from src.app.base.models.entities.base_entity import BaseEntity
+from src.app.classe.models.entities.classe_entity import ClasseEntity
 
 class UserEntity(BaseEntity):
     __tablename__ = "user"
@@ -10,6 +11,7 @@ class UserEntity(BaseEntity):
     username = Column(String(255), unique=True)
     email = Column(String(255), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
-    role = Column(Integer, default=1) # 0: ADMIN - 1: USER
+    role = Column(Integer, default=1)  # 0: ADMIN - 1: USER
 
-    classes_created = relationship("ClasseEntity", back_populates="created_by")
+    classe_id = Column(Integer, ForeignKey("classe.id"), nullable=False)
+    classes_created = relationship("ClasseEntity", back_populates="users", foreign_keys=[ClasseEntity.created_by])  # Ajout de foreign_keys

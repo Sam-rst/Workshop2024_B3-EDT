@@ -4,12 +4,13 @@ from typing import Callable, Generator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, declarative_base, scoped_session, sessionmaker
 
-Base = declarative_base()
+from src.app.base.models.entities.base_entity import Base
 
 class Database:
     def __init__(self, db_url: str) -> None:
         self._engine = create_engine(db_url, echo=False)
         self._session_factory = scoped_session(sessionmaker(
+            autocommit=False,
             autoflush=False,
             bind=self._engine
         ))
@@ -23,8 +24,8 @@ class Database:
         session: Session = self._session_factory()
         try:
             yield session
-        except Exception:
+        except Exception as e:
             session.rollback()
-            raise ValueError("La session a rollback à cause de des exceptions")
+            raise RuntimeError(f"Une erreur est survenue dans la session : {e}")
         finally:
             session.close()

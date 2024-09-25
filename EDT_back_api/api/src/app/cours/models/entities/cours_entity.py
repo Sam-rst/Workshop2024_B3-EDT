@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Integer, DateTime, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
 from src.app.base.models.entities.base_entity import BaseEntity
 
 class CoursEntity(BaseEntity):
@@ -12,4 +13,5 @@ class CoursEntity(BaseEntity):
     en_distanciel = Column(Boolean, default=False)
     prof = Column(String(255), nullable=False)
 
-    classe = Column(Integer, ForeignKey("classe.id"), nullable=False)
+    classe_id = Column(Integer, ForeignKey("classe.id"), nullable=False)
+    classes = relationship("ClasseEntity", back_populates="cours")

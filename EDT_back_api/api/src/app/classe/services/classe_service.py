@@ -4,4 +4,9 @@ from src.app.classe.models.dtos.classe_dto import ClasseDTO
 
 
 class ClasseService:
-    pass
+    
+    def __init__(self, classe_repository: ClasseRepository):
+        self.classe_repository = classe_repository
+    
+    def get_classes(self) -> list[ClasseDTO]:
+        return self.classe_repository.get_users()

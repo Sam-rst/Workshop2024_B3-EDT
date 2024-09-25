@@ -11,7 +11,7 @@ user_router = APIRouter(
     prefix="/users",
     tags=["users"],
     responses={
-        status.HTTP_200_OK: {"message": "Succès"},
+        status.HTTP_200_OK: {"message": "Success"},
         status.HTTP_201_CREATED: {"message": "L'utilisateur a bien été créé"},
         status.HTTP_404_NOT_FOUND: {"message": "Page introuvable"},
         status.HTTP_422_UNPROCESSABLE_ENTITY: {"message": "Erreur de validation des données entrantes"},
@@ -25,7 +25,8 @@ user_router = APIRouter(
     response_model_exclude_none=True,
     status_code=status.HTTP_200_OK
 )
-def users(request: Request,
+@inject
+def route_get_users(request: Request,
           user_service: UserService = Depends(Provide[Container.user_service])
         ) -> JSONResponse:
     """
