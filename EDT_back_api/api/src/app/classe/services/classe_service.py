@@ -10,3 +10,6 @@ class ClasseService:
     
     def get_classes(self) -> list[ClasseDTO]:
         return self.classe_repository.get_classes()
+
+    def create_classe(self, classe: ClasseDTO):
+        return self.classe_repository.create_classe(classe)

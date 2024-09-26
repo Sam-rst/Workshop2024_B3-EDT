@@ -1,5 +1,6 @@
-import secrets, string
+import secrets, string, bcrypt
 from fastapi import HTTPException
+from src.transverse.emailSender import envoyerMailToUser
 from src.app.base.repositories.base_repository import BaseRepository
 from src.app.user.models.entities.user_entity import UserEntity
 from src.app.user.models.dtos.user_dto import UserDTO
@@ -46,12 +47,18 @@ class UserRepository(BaseRepository):
     def create_user(self, user: UserDTO):
         try:
             with self.session_factory() as session:
+                password = self.generate_password(user.firstname, user.lastname)
+                password_hashed = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+                print(f"\n\n\nPassword: {password}\n\n\n")
+                if not envoyerMailToUser(password=password, user_email=user.email, username=user.username):
+                    raise HTTPException(status_code=422, detail="L'envoie du mail n'a pas fonctionné")
+                
                 new_user = UserEntity(
                     firstname=user.firstname,
                     lastname=user.lastname,
                     username=user.username,
                     email=user.email,
-                    password=self.generate_password(user.firstname, user.lastname),
+                    password=password_hashed,
                     classe_id=user.classe_id
                 )
                 
@@ -60,6 +67,8 @@ class UserRepository(BaseRepository):
                 
                 user_id = new_user.id
                 session.commit()
+                
+                # Envoie du mail à l'utilisateur
                 return {"id", user_id}
         except Exception as e:
             raise HTTPException(status_code=422, detail=e.args[0])

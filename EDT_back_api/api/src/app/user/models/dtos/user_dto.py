@@ -1,7 +1,6 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
 from src.app.user.models.entities.user_entity import UserEntity
-from src.app.classe.models.dtos.classe_dto import ClasseDTO
 
 class UserDTO(BaseModel):
 
@@ -12,23 +11,20 @@ class UserDTO(BaseModel):
     email: str = Field(description="Email de l'utilisateur")
     password: str = Field(description="Mot de passe hashé de l'utilisateur")
     role: int = Field(description="Rôle de l'utilisateur", default=1)
-    created_at: datetime = Field(description="L'utilisateur a été créé tel jour", default_factory=datetime.now)
-    updated_at: datetime = Field(description="L'utilisateur a été modifié tel jour")
 
-    # Classes créées ne peut être modifié que par l'administrateur
-    classes_created: list[ClasseDTO] = Field(description="Classes créées par l'administrateur (INFO : doit être créé que quand le rôle est 0 --ADMIN--)", default_factory=list)
+    classe_id: int = Field(description="Id de la classe")
 
     @classmethod
-    def copy_from_entity(cls, entity: UserEntity):
+    def copy_from_entity(cls, user: UserEntity):
         return cls(
-            id=entity.id,
-            firstname=entity.firstname,
-            lastname=entity.lastname,
-            username=entity.username,
-            email=entity.email,
-            password=entity.password,
-            role=entity.role,
-            created_at=entity.created_at,
-            updated_at=entity.updated_at,
-            classes_created=[ClasseDTO.copy_from_entity(classe) for classe in entity.classes_created] if entity.classes_created else []
+            id=user.id,
+            firstname=user.firstname,
+            lastname=user.lastname,
+            username=user.username,
+            email=user.email,
+            password=user.password,
+            role=user.role,
+            created_at=user.created_at,
+            updated_at=user.updated_at,
+            classe_id=user.classe_id
         )

@@ -46,7 +46,7 @@ def route_get_users(request: Request,
     )
 
 @user_router.post(
-    "/user",
+    "/create",
     response_description="Création d'un user",
     response_model_exclude_unset=True,
     response_model_exclude_none=True,

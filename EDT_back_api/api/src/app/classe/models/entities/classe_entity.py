@@ -10,5 +10,5 @@ class ClasseEntity(BaseEntity):
     annee_formation = Column(String(255), nullable=False)
     ecole = Column(String(255), nullable=False)
 
-    users = relationship("UserEntity", back_populates="classe_id")
-    cours = relationship("CoursEntity", back_populates="classe_id")
+    users = relationship("UserEntity", back_populates="classes")
+    cours = relationship("CoursEntity", back_populates="classes")

@@ -71,3 +71,22 @@ def route_get_prochains_cours(request: Request,
         status_code=status.HTTP_200_OK,
         content=jsonable_encoder(cours_dtos)
     )
+
+@cours_router.post(
+    "/create",
+    response_description="Création d'un cours",
+    response_model_exclude_unset=True,
+    response_model_exclude_none=True,
+    status_code=status.HTTP_201_CREATED
+)
+@inject
+def create_cours(
+    cours: CoursDTO,
+    cours_service: CoursService = Depends(Provide[Container.cours_service])
+    ) -> JSONResponse:
+    
+    output_response = cours_service.create_cours(cours)
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content=jsonable_encoder(output_response)
+    )

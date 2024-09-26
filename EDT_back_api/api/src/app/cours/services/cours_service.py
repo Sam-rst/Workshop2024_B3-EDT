@@ -13,3 +13,6 @@ class CoursService:
 
     def get_prochains_cours(self) -> list[CoursDTO]:
         return self.cours_repository.get_prochains_cours()
+    
+    def create_cours(self, cours: CoursDTO):
+        return self.cours_repository.create_cours(cours)

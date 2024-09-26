@@ -46,3 +46,22 @@ def route_get_classes(request: Request,
         status_code=status.HTTP_200_OK,
         content=jsonable_encoder(classes_dtos)
     )
+
+@classe_router.post(
+    "/create",
+    response_description="Création d'une classe",
+    response_model_exclude_unset=True,
+    response_model_exclude_none=True,
+    status_code=status.HTTP_201_CREATED
+)
+@inject
+def create_classe(
+    classe: ClasseDTO,
+    classe_service: ClasseService = Depends(Provide[Container.classe_service])
+    ) -> JSONResponse:
+    
+    output_response = classe_service.create_classe(classe)
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content=jsonable_encoder(output_response)
+    )

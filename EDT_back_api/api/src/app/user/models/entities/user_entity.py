@@ -14,3 +14,4 @@ class UserEntity(BaseEntity):
     role = Column(Integer, default=1)  # 0: ADMIN - 1: USER
 
     classe_id = Column(Integer, ForeignKey("classe.id"))
+    classes = relationship("ClasseEntity", back_populates="users")
