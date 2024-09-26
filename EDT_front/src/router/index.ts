@@ -6,7 +6,6 @@ import AboutPage from '../views/AboutPage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import HomePageAdmin from '@/views/HomePageAdmin.vue';
 import Calendar from '@/views/Calendar.vue';
-import CalendarCopy from '@/views/CalendarCopy.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
