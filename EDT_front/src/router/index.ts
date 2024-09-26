@@ -36,12 +36,6 @@ const routes: Array<RouteRecordRaw> = [
     meta: { requiresAuth: true }
   },
   {
-    path: '/calendaro',
-    name: 'CalendarCopy',
-    component: CalendarCopy,
-    meta: { requiresAuth: true }
-  },
-  {
     path: '/admin',
     name: 'Admin',
     component: HomePageAdmin,
