@@ -1,6 +1,5 @@
 <template>
   <ion-app>
-    <Navbar v-if="shouldShowNavbar" />
     <ion-router-outlet />
   </ion-app>
 </template>
@@ -15,7 +14,6 @@ export default {
   components: {
     IonApp,
     IonRouterOutlet,
-    Navbar
   },
   
   setup() {

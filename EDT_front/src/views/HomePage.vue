@@ -1,4 +1,6 @@
 <template>
+  <ion-page>
+    <Navbar />
   <ion-content>
     <div class="title-content">
       <div class="line-titlecontent"></div>
@@ -74,6 +76,7 @@
       <a class="button-calendar" href="/calendar">Emploi du temps</a>
     </div>
   </ion-content>
+  </ion-page>
 </template>
 
 <script setup lang="ts">
@@ -82,6 +85,7 @@ import { IonContent, IonHeader, IonPage, IonIcon, IonButton, IonTitle, IonToolba
 import { ref } from "vue";
 import { defineComponent } from 'vue';
 import { personOutline } from 'ionicons/icons';
+import Navbar from '@/components/Navbar.vue';
 
 const Action = () => {
   router.push("/admin")
@@ -138,14 +142,16 @@ body, html, ion-content {
 .line-titlecontent {
   width: 40%;
   height: 1px;
-  background-color: #ffff;
+  background-color: #191919;
 }
 .card {
+  width: 300px;
   max-width: 20%;
+  background-color: #191919;
 }
 .card, .card-subtitle, .card-title {
   font-family: "DM Sans", sans-serif;
-  color: #ffff;
+  color: white;
 }
 .card-title {
   text-transform: uppercase;
@@ -157,7 +163,7 @@ body, html, ion-content {
   text-transform: uppercase;
   font-size: xx-large;
     text-align: center;
-    border-top: white solid 1px;
+    border-top: 3333 solid 1px;
     padding: 7%;
 }
 .lvl {
@@ -196,20 +202,20 @@ body, html, ion-content {
 }
 .parent-button-caldendar {
   text-align: center;
-  margin-top: 5%;
+  margin: 5% 0;
 }
 .button-calendar {
   padding: 15px;
   border-radius: 5px;
-  border: white 1px solid;
-  color: white;
+  border: #191919 1px solid;
+  color: black;
   font-size: large;
   text-decoration: none;
   font-family: "DM Sans", sans-serif;
 }
 .button-calendar:hover {
-  background-color: #ffff;
-  color: black;
+  background-color: #191919;
+  color: white;
 }
 @media (min-width: 1200px) {
   .card-subtitle {
