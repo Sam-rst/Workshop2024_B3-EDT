@@ -211,4 +211,35 @@ body, html, ion-content {
   background-color: #ffff;
   color: black;
 }
+@media (min-width: 1200px) {
+  .card-subtitle {
+    font-size: large;
+  }
+  .card {
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 1199px) {
+  .card-subtitle {
+    font-size: medium;
+  }
+  .card {
+    max-width: 100%;
+  }
+}
+@media (max-width: 575px) {
+  .card-subtitle {
+    font-size: medium;
+  }
+  .card {
+    max-width: 100%;
+  }
+  .parent-cards {
+    display: grid;
+  }
+  .parent-button-caldendar {
+    margin-top: 15%;
+  }
+}
+
 </style>
