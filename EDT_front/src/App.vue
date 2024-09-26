@@ -1,9 +1,37 @@
 <template>
   <ion-app>
+    <Navbar v-if="shouldShowNavbar" />
     <ion-router-outlet />
   </ion-app>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
+import Navbar from './components/Navbar.vue';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+export default {
+  components: {
+    IonApp,
+    IonRouterOutlet,
+    Navbar
+  },
+  
+  setup() {
+    const route = useRoute();
+    
+    // Log pour voir le nom de la route actuelle
+    console.log(`Current route name: ${route.name}`);
+
+    // Utilise computed pour déterminer si la Navbar doit s'afficher
+    const shouldShowNavbar = computed(() => {
+      return route.name !== 'Login'; // Condition inverse
+    });
+
+    return {
+      shouldShowNavbar
+    };
+  }
+}
 </script>
