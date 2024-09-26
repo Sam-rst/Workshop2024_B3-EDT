@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage.vue';
 import AboutPage from '../views/AboutPage.vue';
 import LoginPage from '../views/LoginPage.vue';
 import HomePageAdmin from '@/views/HomePageAdmin.vue';
+import Calendar from '@/views/Calendar.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -26,6 +27,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'About',
     component: AboutPage,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar,
     meta: { requiresAuth: true }
   },
   {
