@@ -14,52 +14,51 @@
     <div class="parent-cards">
       <ion-card class="card">
         <ion-card-header style="padding: 0;">
-          <ion-card-title class="card-title">MERCREDI 25/06</ion-card-title>
-          <ion-card-subtitle class="card-subtitle">Dev Python Learning</ion-card-subtitle>
+          <ion-card-title class="card-title">VENDREDI 27/09</ion-card-title>
+          <ion-card-subtitle class="card-subtitle">Workshop</ion-card-subtitle>
           <div class="lvl">B3 DEVIA FS ALT 24/25</div>
         </ion-card-header>
 
         <div>
-          <div class="proff">Jambor Veronika</div>
+          <div class="proff">Florian TOIX</div>
         </div>
 
         <div class="information">
           <div class="hours">
-            <div class="start">09h00</div>
-            <div class="end">10h00</div>
+            <div class="start">08h00</div>
+            <div class="end">12h00</div>
           </div>
           <div class="lieu">
-            <div class="salle">Salle 103</div>
-            <div class="typecours">(distanciel)</div>
+            <div class="salle">Salle 001</div>
+            <div class="typecours">(présentiel)</div>
           </div>
         </div>
 
-        <ion-button fill="clear" style="text-align: center; width: 100%;" @click="Action">Modifier</ion-button>
       </ion-card>
 
       <ion-card class="card">
         <ion-card-header style="padding: 0;">
-          <ion-card-title class="card-title">MERCREDI 25/06</ion-card-title>
-          <ion-card-subtitle class="card-subtitle">Dev Python Learning</ion-card-subtitle>
+          <ion-card-title class="card-title">VENDREDI 27/09</ion-card-title>
+          <ion-card-subtitle class="card-subtitle">Dev Python</ion-card-subtitle>
           <div class="lvl">B3 DEVIA FS ALT 24/25</div>
         </ion-card-header>
 
         <div>
-          <div class="proff">Jambor Veronika</div>
+          <div class="proff">Geoffroy LANDRAT</div>
         </div>
 
         <div class="information">
           <div class="hours">
-            <div class="start">09h00</div>
-            <div class="end">10h00</div>
+            <div class="start">13h00</div>
+            <div class="end">17h00</div>
           </div>
           <div class="lieu">
             <div class="salle">Salle 103</div>
-            <div class="typecours">(distanciel)</div>
+            <div class="typecours">(présentiel)</div>
           </div>
         </div>
 
-        <ion-button fill="clear" style="text-align: center; width: 100%;" @click="Action">Modifier</ion-button>
+
       </ion-card>
     </div>
 
