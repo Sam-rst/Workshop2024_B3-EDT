@@ -71,7 +71,7 @@
     <div class="title-page">Visualiser l’emploi du temps</div>
 
     <div class="parent-button-caldendar">
-      <a class="button-calendar" href="/calendat">Emploi du temps</a>
+      <a class="button-calendar" href="/calendar">Emploi du temps</a>
     </div>
   </ion-content>
 </template>
