@@ -25,12 +25,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about',
     name: 'About',
-    component: AboutPage
+    component: AboutPage,
+    meta: { requiresAuth: true }
   },
   {
     path: '/admin',
     name: 'Admin',
-    component: HomePageAdmin
+    component: HomePageAdmin,
+    meta: { requiresAuth: true }
   }
 ]
 

@@ -22,11 +22,11 @@
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
     "@ionic/vue": "^8.0.0",
-    "@ionic/vue-router": "^8.0.0",
+    "@ionic/vue-router": "^8.3.1",
     "ionicons": "^7.4.0",
     "js-cookie": "^3.0.5",
     "vue": "^3.3.0",
-    "vue-router": "^4.2.0"
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@capacitor/cli": "6.1.2",
