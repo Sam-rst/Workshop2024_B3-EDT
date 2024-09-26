@@ -103,7 +103,7 @@
     submitted.value = true;
     //Vérifier si le username et le mot de passe sont correcte
     //username.value || password.value
-    if (username.value === "test" && password.value === "password") {
+    if (username.value === "student" && password.value === "password") {
         toastMessage.value = "Successfully logged in!";
         //Faire apparaitre le message en bas
         showToast.value = true;

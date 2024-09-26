@@ -20,7 +20,6 @@ export default {
     const route = useRoute();
     
     // Log pour voir le nom de la route actuelle
-    console.log(`Current route name: ${route.name}`);
 
     // Utilise computed pour déterminer si la Navbar doit s'afficher
     const shouldShowNavbar = computed(() => {
