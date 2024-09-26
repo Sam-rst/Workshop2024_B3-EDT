@@ -1,61 +1,79 @@
 <template>
-
-    <ion-header>
-      <ion-toolbar style="padding: 0 30px 0 30px;">
-        <ion-title slot="start"><img src="/Logo_StudyTime_white.png" width="100px" alt="logo study time"></ion-title>
-        <div slot="end" class="group-icon">
-          <a id="icon-header" href="/home"><img src="/home-outline.svg" alt="logo profil"></a>
-          <a id="icon-header" href="/calendar"><img src="/calendar-number-outline.svg" alt="logo profil"></a>
-          <a id="icon-header" href="/profil"><img src="/person-circle-outline.svg" alt="logo profil"></a>
-        </div>
-        <ion-title>Study Time</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+  <ion-content>
     <div class="title-content">
-      <h1>Vos prochains cours</h1>
+      <div class="line-titlecontent"></div>
+      <div>
+        <img src="/horloge.png" alt="">
+      </div>
+      <div class="line-titlecontent"></div>
     </div>
+    <div class="title-page">Vos prochains cours</div>
 
     <div class="parent-cards">
-        <ion-card class="card">
-        <ion-card-header>
+      <ion-card class="card">
+        <ion-card-header style="padding: 0;">
           <ion-card-title class="card-title">MERCREDI 25/06</ion-card-title>
-          <ion-card-subtitle class="card-subtitle">Cours de ...</ion-card-subtitle>
+          <ion-card-subtitle class="card-subtitle">Dev Python Learning</ion-card-subtitle>
           <div class="lvl">B3 DEVIA FS ALT 24/25</div>
         </ion-card-header>
-
-        <div class="line"></div>
 
         <div>
           <div class="proff">Jambor Veronika</div>
         </div>
 
-        <div class="line"></div>   
-        
         <div class="information">
           <div class="hours">
             <div class="start">09h00</div>
             <div class="end">10h00</div>
           </div>
-          <div class="horizontal-line"></div>
           <div class="lieu">
             <div class="salle">Salle 103</div>
             <div class="typecours">(distanciel)</div>
           </div>
         </div>
 
-        <ion-button fill="clear" @click="Action">Modifier</ion-button>
+        <ion-button fill="clear" style="text-align: center; width: 100%;" @click="Action">Modifier</ion-button>
       </ion-card>
 
       <ion-card class="card">
-        <ion-card-header>
+        <ion-card-header style="padding: 0;">
           <ion-card-title class="card-title">MERCREDI 25/06</ion-card-title>
-          <ion-card-subtitle class="card-subtitle">Cours de ...</ion-card-subtitle>
+          <ion-card-subtitle class="card-subtitle">Dev Python Learning</ion-card-subtitle>
+          <div class="lvl">B3 DEVIA FS ALT 24/25</div>
         </ion-card-header>
 
-        <ion-button fill="clear" @click="Action">Modifier</ion-button>
+        <div>
+          <div class="proff">Jambor Veronika</div>
+        </div>
+
+        <div class="information">
+          <div class="hours">
+            <div class="start">09h00</div>
+            <div class="end">10h00</div>
+          </div>
+          <div class="lieu">
+            <div class="salle">Salle 103</div>
+            <div class="typecours">(distanciel)</div>
+          </div>
+        </div>
+
+        <ion-button fill="clear" style="text-align: center; width: 100%;" @click="Action">Modifier</ion-button>
       </ion-card>
     </div>
+
+    <div class="title-content">
+      <div class="line-titlecontent"></div>
+      <div>
+        <img src="/agenda.png" alt="">
+      </div>
+      <div class="line-titlecontent"></div>
+    </div>
+    <div class="title-page">Visualiser l’emploi du temps</div>
+
+    <div class="parent-button-caldendar">
+      <a class="button-calendar" href="/calendat">Emploi du temps</a>
+    </div>
+  </ion-content>
 </template>
 
 <script setup lang="ts">
@@ -71,7 +89,12 @@ const Action = () => {
 </script>
 
 <style scoped>
-.group-icon a {
+body, html, ion-content {
+  height: 100%;
+  overflow: auto;
+}
+
+/*.group-icon a {
   margin: 10px;
 }
 .group-icon a img {
@@ -80,7 +103,7 @@ const Action = () => {
 }
 .group-icon a img:hover {
   transform: scale(1.1);
-}
+}*/
 .title-content {
   text-align: center;
   text-transform: uppercase;
@@ -99,13 +122,93 @@ const Action = () => {
   height: 100%;
   background-color: #ffff;
 }
+.title-page {
+  margin: 2% 0 2% 0;
+  font-size: x-large; 
+  text-transform: uppercase; 
+  width: 100%; 
+  text-align: center;
+}
+.title-content {
+  margin-top: 3%;
+  display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.line-titlecontent {
+  width: 40%;
+  height: 1px;
+  background-color: #ffff;
+}
 .card {
-  max-width: 30%;
+  max-width: 20%;
+}
+.card, .card-subtitle, .card-title {
+  font-family: "DM Sans", sans-serif;
+  color: #ffff;
 }
 .card-title {
   text-transform: uppercase;
+  padding: 5%;
+  font-size: x-large;
+  text-align: center;
 }
 .card-subtitle {
   text-transform: uppercase;
+  font-size: xx-large;
+    text-align: center;
+    border-top: white solid 1px;
+    padding: 7%;
+}
+.lvl {
+  text-align: end;
+}
+.proff {
+  text-align: center;
+    font-size: x-large;
+    padding: 7%;
+    border-top: #ffff solid 1px;
+}
+.information {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.hours {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  padding-top: 5%;
+}
+.hours div:nth-child(2) {
+  margin-top: 15%;
+}
+.lieu {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid white;
+  padding-top: 5%;
+}
+.lieu div:nth-child(2) {
+  margin-top: 15%;
+}
+.parent-button-caldendar {
+  text-align: center;
+  margin-top: 5%;
+}
+.button-calendar {
+  padding: 15px;
+  border-radius: 5px;
+  border: white 1px solid;
+  color: white;
+  font-size: large;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+}
+.button-calendar:hover {
+  background-color: #ffff;
+  color: black;
 }
 </style>
